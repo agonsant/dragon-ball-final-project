@@ -27,4 +27,5 @@ body {
   padding: var(--db-spacing-s);
   color: #fff;
   border-radius: var(--db-rounded-xs);
+  font-weight: bold;
 }
