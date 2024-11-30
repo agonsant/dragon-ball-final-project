@@ -8,6 +8,9 @@
   --db-spacing-lg: 16px;
 
   --db-rounded-xs: 5px;
+  --db-rounded-md: 10px;
+
+  --db-elevation-md: 0 0 10px rgba(0, 0, 0, 0.1);
 
   --db-page-title-size: 24px;
 }
