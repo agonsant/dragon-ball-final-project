@@ -1,4 +1,4 @@
-function renderCharacter(character) {
+function renderDetailCharacterUI(character) {
   const characterCard = document.createElement("article");
   characterCard.classList.add("character-card__container");
   if (character.race === "Saiyan") {
@@ -42,5 +42,5 @@ function renderCharacter(character) {
 }
 
 for (let character of characters.items) {
-  renderCharacter(character);
+  renderDetailCharacterUI(character);
 }
