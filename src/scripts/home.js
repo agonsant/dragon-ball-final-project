@@ -42,6 +42,12 @@ function renderDetailCharacterUI(character) {
   characterList.appendChild(listItem);
 }
 
-for (let character of characters.items) {
-  renderDetailCharacterUI(character);
+async function initPage() {
+  const characters = await getCharactersFromAPI();
+
+  for (let character of characters.items) {
+    renderDetailCharacterUI(character);
+  }
 }
+
+initPage();

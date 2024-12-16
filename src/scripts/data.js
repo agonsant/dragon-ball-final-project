@@ -275,3 +275,14 @@ const characters = {
     last: "https://dragonball-api.com/api/characters?page=3&limit=20",
   },
 };
+
+async function getCharactersFromAPI() {
+  // API REST
+  //Paso 1: solicitar al servidor los dtos, recibiendo una respuesta
+  const httpResponse = await fetch(
+    "https://dragonball-api.com/api/characters?limit=30"
+  );
+  // Paso 2: proceso la respuesta
+  const characters = await httpResponse.json();
+  return characters;
+}
