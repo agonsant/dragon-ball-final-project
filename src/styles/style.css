@@ -45,6 +45,8 @@ body {
 }
 
 .character-card__container {
+  text-decoration: none;
+  display: block;
   width: 200px;
   border-radius: var(--db-rounded-md);
   box-shadow: var(--db-elevation-md);

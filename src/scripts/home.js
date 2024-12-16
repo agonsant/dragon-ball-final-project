@@ -1,5 +1,6 @@
-function renderCharacter(character) {
-  const characterCard = document.createElement("article");
+function renderDetailCharacterUI(character) {
+  const characterCard = document.createElement("a");
+  characterCard.href = `./detail.html?characterId=${character.id}`;
   characterCard.classList.add("character-card__container");
   if (character.race === "Saiyan") {
     characterCard.classList.add("character-card__container--saiyan");
@@ -42,5 +43,5 @@ function renderCharacter(character) {
 }
 
 for (let character of characters.items) {
-  renderCharacter(character);
+  renderDetailCharacterUI(character);
 }
