@@ -1,5 +1,6 @@
 function renderDetailCharacterUI(character) {
-  const characterCard = document.createElement("article");
+  const characterCard = document.createElement("a");
+  characterCard.href = `./detail.html?characterId=${character.id}`;
   characterCard.classList.add("character-card__container");
   if (character.race === "Saiyan") {
     characterCard.classList.add("character-card__container--saiyan");
