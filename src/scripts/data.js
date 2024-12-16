@@ -1,3 +1,24 @@
+async function getPokemonListFromAPI() {
+  const httpResponse = await fetch(
+    "https://pokeapi.co/api/v2/pokemon?limit=150"
+  );
+  const pokemons = await httpResponse.json();
+  // con el map genero una nueva peticion HTTP para cada pokemon en un arra. Tendre un array de peticiones
+  const allDetailedRequest = pokemons.results.map((pokemon) =>
+    getPokemonDetailFromAPIByName(pokemon.name)
+  );
+  // esto es un array de objetos { status, value }. Nos interesa el value
+  const allPokemonSettled = await Promise.allSettled(allDetailedRequest);
+  // recorre el array anterior, generando uno nuevo (ya que es map) solo con la propiedad value
+  return allPokemonSettled.map((pokemonSettled) => pokemonSettled.value);
+}
+
+async function getPokemonDetailFromAPIByName(name) {
+  const httpResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  const pokemon = await httpResponse.json();
+  return pokemon;
+}
+
 async function getCharacterListFromAPI() {
   // API REST
   //Paso 1: solicitar al servidor los dtos, recibiendo una respuesta
