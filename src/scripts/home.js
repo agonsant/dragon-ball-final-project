@@ -41,6 +41,6 @@ function renderCharacter(character) {
   characterList.appendChild(listItem);
 }
 
-for (let i = 0; i < characters.items.length; i++) {
-  renderCharacter(characters.items[i]);
+for (let character of characters.items) {
+  renderCharacter(character);
 }
