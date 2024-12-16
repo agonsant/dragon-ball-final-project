@@ -3,31 +3,31 @@ function getCharacterIdFromUrl() {
   return parseInt(params.get("characterId"));
 }
 
-function getCharacterInfoById(id) {
-  return characters.items.find((character) => character.id === id);
-  /*
- 1ª FORMA
-  function findCharacterById(character) {
-    return character.id === characterId;
- }
- const dbCharacter = characters.items.find(findCharacterById);
-*/
+// function getCharacterInfoById(id) {
+//   return characters.items.find((character) => character.id === id);
+//   /*
+//  1ª FORMA
+//   function findCharacterById(character) {
+//     return character.id === characterId;
+//  }
+//  const dbCharacter = characters.items.find(findCharacterById);
+// */
 
-  /*
-2ª FORMA 
-*/
-  // const dbCharacter = characters.items.find(
-  //     (character) => character.id === characterId
-  //   );
+//   /*
+// 2ª FORMA
+// */
+//   // const dbCharacter = characters.items.find(
+//   //     (character) => character.id === characterId
+//   //   );
 
-  // 3ª Forma
-  // let dbCharacter = null;
-  // for (let character of characters.item) {
-  //   if (character.id === characterId) {
-  //     dbCharacter = character;
-  //   }
-  // }
-}
+//   // 3ª Forma
+//   // let dbCharacter = null;
+//   // for (let character of characters.item) {
+//   //   if (character.id === characterId) {
+//   //     dbCharacter = character;
+//   //   }
+//   // }
+// }
 
 function renderDetailCharacterUI(character) {
   const characterImg = document.createElement("img");
@@ -41,6 +41,10 @@ function renderDetailCharacterUI(character) {
   containerElement.appendChild(characterName);
 }
 
-const characterId = getCharacterIdFromUrl(); // paso 1: obtener el id de la URL
-const dbCharacter = getCharacterInfoById(characterId); // paso 2: Buscar la información de detalle del personaje
-renderDetailCharacterUI(dbCharacter); // pintar en la UI el personaje
+async function initPage() {
+  const characterId = getCharacterIdFromUrl(); // paso 1: obtener el id de la URL
+  const dbCharacter = await getCharacterDetailFromAPIById(characterId); // paso 2: Buscar la información de detalle del personaje
+  renderDetailCharacterUI(dbCharacter); // pintar en la UI el personaje
+}
+
+initPage();

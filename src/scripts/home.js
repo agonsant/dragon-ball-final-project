@@ -1,5 +1,6 @@
 function renderDetailCharacterUI(character) {
   const characterCard = document.createElement("a");
+  // Esto es lo que enlaza la card del listado con la página de detalle con el id concreto
   characterCard.href = `./detail.html?characterId=${character.id}`;
   characterCard.classList.add("character-card__container");
   if (character.race === "Saiyan") {
@@ -43,7 +44,7 @@ function renderDetailCharacterUI(character) {
 }
 
 async function initPage() {
-  const characters = await getCharactersFromAPI();
+  const characters = await getCharacterListFromAPI();
 
   for (let character of characters.items) {
     renderDetailCharacterUI(character);
