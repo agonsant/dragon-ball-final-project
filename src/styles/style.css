@@ -51,6 +51,10 @@ body {
   background-color: var(--db-color-secondary);
 }
 
+.character-card__container--saiyan {
+  border: 2px dashed var(--db-color-primary);
+}
+
 .character-card__header {
   background-image: url("../assets/imgs/character-header-bg.webp");
   background-size: cover;
@@ -77,6 +81,10 @@ body {
 
 .character-description__text--primary {
   color: var(--db-color-primary);
+}
+
+.character-description__text--z-fighter {
+  color: red;
 }
 
 .character-list__container {
